@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Deployment</title>
+</head>
+<body>
+<h1>Come fare il deployment da PHPStorm</h1>
+
+<ol>
+    <li>Aprire il menu <strong>Tools</strong> -> <strong>Deployment</strong> -> <strong>Configuration...</strong></li>
+    <li>Premere il pulsante con il simbolo <strong>+</strong> per aggiungere una nuova configurazione di deploy</li>
+    <li>Dare un nome significativo alla configurazione creata</li>
+    <li>Nella sezione <strong>Type</strong> selezionare <strong>SFTP</strong></li>
+    <li>Se non già presente, aggiungere una <strong>SSH Configuration</strong>, selezionando <strong>...</strong></li>
+    <li>Nel campo <strong>Host</strong> inserire l'indirizzo di Winnie <strong>10.4.55.123</strong></li>
+    <li>Nel campo <strong>Username</strong> inserire lo username dato all'inizio dell'anno</li>
+    <li>Come <strong>Authentication Type</strong> scegliere <strong>Password</strong></li>
+    <li>Provare con <strong>Test Connection</strong> se è stato configurato correttamente</li>
+    <li>Eventualmente salvare la password</li>
+    <li>Premere <strong>Ok</strong> e tornare alla schermata precedente</li>
+    <li>Impostare la <strong>Root Path</strong> del progetto, selezionando l'icona della cartella e
+        andando nella propria cartella, che si trova all'indirizzo /home/username/public_html/sottocartella</li>
+    <li>In <strong>WebServer</strong> impostare l'indirizzo del proprio progetto su Winnie, ad esempio http://10.4.55.123/~simvac/introduzione</li>
+    <li>Spostarsi sul tab <strong>Mappings</strong></li>
+    <li><strong>Localpath</strong> lasciare quello preimpostato</li>
+    <li>Negli altri due campi, a meno di casi eccezionali, inserire /home/username/public_html/sottocartella e /</li>
+    <li>Premere infine <strong>Ok</strong> e si avrà una configurazione di deployment</li>
+</ol>
+</body>
+</html>
