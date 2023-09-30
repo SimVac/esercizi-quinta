@@ -2,20 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Home</title>
 </head>
-<body>
-<!-- Non so perché funziona chiedere a ska -->
-<div style="display:flex;justify-content:center;">
-    <div style="display:flex;justify-content:center;flex-direction:column;">
-        <h1>HOME</h1>
-        <ul>
-            <li><a href="introduzione/">Introduzione</a></li>
-        </ul>
-    </div>
+<body class="bg-gray-900">
+<h1 class="mb-4 flex justify-center pt-10 text-l font-bold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">HOME</h1>
+<div class="grid grid-cols-[repeat(auto-fit,_16.666666%)] justify-center gap-4">
+    <a href="introduzione/" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Introduzione</h5>
+        <p class="font-normal text-gray-700 dark:text-gray-400">Progetto di introduzione per HTML, CSS e di deployment</p>
+    </a>
 </div>
 </body>
 </html>
