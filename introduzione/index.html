@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Introduzione</title>
 </head>
 <body>
 <!-- I tag h stanno per headings e sono numerati da 1 a 6 in ordine di importanza -->
@@ -46,5 +46,94 @@
 
 <p><a href="deployment.html">Link per la configurazione di deployment</a></p>
 <p><a href="css.html">Link per la spiegazione del css</a></p>
+<h2>Tabelle</h2>
+<p>Le tabelle HTML sono comandate dalle colonne. I tag di base da utilizzare sono il tag <strong>table</strong>,
+    che individua la tabella, il tag <strong>tr</strong>, che individua la singola riga e il tag <strong>td</strong>,
+    che individua, all'interno della riga, la singola colonna</p>
+
+<table>
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+    </tr>
+</table>
+
+<h3>Intestazione di tabella</h3>
+<p>Volendo aggiungere un'intestazione con i nomi delle colonne, è meglio separare le righe della tabella in due parti distinte,
+<strong>thead</strong> con le colonne indicate da <strong>th</strong> e <strong>tbody</strong></p>
+
+<table>
+    <thead>
+        <tr>
+            <th>A</th>
+            <th>B</th>
+            <th>C</th>
+            <th>D</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Form</h2>
+<p>I form (o moduli) sono il meccanismo che HTML espone per poter acquisire dell'input da parte dell'utente, mostrando dei controlli grafici
+standard (campo di testo, menù a tendina, check box ecc.), che gli permetteranno di inviare dei valori all'applicazione.</p>
+<p>Il tag principale è il <strong>form</strong>, che è il contenitore dei vari campi di input. Di questo tag i due attributi principali che utilizzeremo
+sono l'attributo <strong>action</strong> e <strong>method</strong></p>
+
+<h3>Il campo di testo</h3>
+<p>Il campo di testo è il solito rettangolo che permette all'utente di inserire del testo libero corto. Il tag è <strong>input</strong> in cui bisogna specificare il tipo con l'attributo <strong>type</strong>, che in questo caso deve valere <strong>text</strong></p>
+
+<h4>Esempio</h4>
+<form action="" method="post">
+    Nome <input type="text">
+</form>
+
+<h3>Il bottone di invio</h3>
+<p>Quasi sempre nei form c'è un tasto di invio dei dati, il modo più semplice per inserirlo è ancora usare il tag input con però come tipo <strong>submit</strong></p>
+
+<h4>Esempio</h4>
+<form action="" method="post">
+    Nome <input type="text">
+    <input type="submit">
+</form>
 </body>
 </html>
