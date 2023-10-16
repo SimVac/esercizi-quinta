@@ -1,0 +1,11 @@
+#destra {
+    margin-left: 20px;
+    width: 40%;
+    float: left;
+}
+
+#sinistra {
+    margin-right: 20px;
+    width: 40%;
+    float: right;
+}
