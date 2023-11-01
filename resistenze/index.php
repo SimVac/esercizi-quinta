@@ -79,7 +79,7 @@ $valori_tolleranza = [
 $valore = null;
 if (isset($_POST['primaBanda'])) {
     $valore = $valori_colore[$_POST['primaBanda']];
-    $valore += $valori_colore[$_POST['secondaBanda']];
+    $valore .= $valori_colore[$_POST['secondaBanda']];
     $valore *= $valori_moltiplicatore[$_POST['moltiplicatore']];
     $valore .= ' Ω ' . $valori_tolleranza[$_POST['tolleranza']] . '%';
 }
