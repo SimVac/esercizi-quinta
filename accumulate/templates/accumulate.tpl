@@ -10,7 +10,7 @@
     <title>Accumulate</title>
 </head>
 <body class="flex justify-center justify-items-center">
-<div>
+<div class="flex flex-col items-center justify-center">
     <form action="" method="post" class="">
         <div class="form-control w-full max-w-xs">
             <label class="label">
@@ -41,7 +41,7 @@
         </div>
         <button type="submit" class="btn bg-gray-800">Calcola</button>
     </form>
-    <p class="p-5 text-xl">
+    <p class="p-5 text-xl text-center">
         <?=$valori?>
     </p>
 </div>
