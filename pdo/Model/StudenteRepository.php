@@ -8,14 +8,14 @@ class StudenteRepository
     public static function listAll(): array
     {
         $pdo = Connection::getInstance();
-        $sql = 'SELECT Nome, Cognome, c.classe FROM studenti AS s INNER JOIN classe AS c WHERE id=s.classe';
+        $sql = 'SELECT s.*, c.sezione FROM studente AS s INNER JOIN classe AS c WHERE c.id=s.id_classe';
         $result = $pdo->query($sql);
         return $result->fetchAll();
     }
     public static function getStudenteByID($id)
     {
         $pdo = Connection::getInstance();
-        $sql = 'SELECT * FROM studenti WHERE ID=:id';
+        $sql = 'SELECT * FROM studente WHERE ID=:id';
         $result = $pdo->prepare($sql);
         $result->execute([
             'id' => $id
@@ -38,7 +38,7 @@ class StudenteRepository
     public static function listAllOrderBySurname(): array
     {
         $pdo = Connection::getInstance();
-        $sql = 'SELECT (Nome, Cognome, c.classe) FROM studenti AS s INNER JOIN classe AS c WHERE id=s.classe ORDER BY Cognome';
+        $sql = 'SELECT s.*, c.sezione FROM studente AS s INNER JOIN classe AS c WHERE c.id=s.id_classe ORDER BY s.cognome';
         $result = $pdo->query($sql);
         return $result->fetchAll();
     }
@@ -46,34 +46,35 @@ class StudenteRepository
     public static function listAllOrderByName(): array
     {
         $pdo = Connection::getInstance();
-        $sql = 'SELECT (Nome, Cognome, c.classe) FROM studenti AS s INNER JOIN classe AS c WHERE id=s.classe ORDER BY Nome';
+        $sql = 'SELECT s.*, c.sezione FROM studente AS s INNER JOIN classe AS c WHERE c.id=s.id_classe ORDER BY s.nome';
         $result = $pdo->query($sql);
         return $result->fetchAll();
     }
     public static function listAllOrderByClass(): array
     {
         $pdo = Connection::getInstance();
-        $sql = 'SELECT (Nome, Cognome, c.classe) FROM studenti AS s INNER JOIN classe AS c WHERE id=s.classe ORDER BY c.classe';
+        $sql = 'SELECT s.*, c.sezione FROM studente AS s INNER JOIN classe AS c WHERE c.id=s.id_classe ORDER BY c.classe';
         $result = $pdo->query($sql);
         return $result->fetchAll();
     }
 
-    public static function add($nome, $cognome)
+    public static function add($nome, $cognome, $id_classe)
     {
         $pdo = Connection::getInstance();
-        $sql = 'INSERT INTO studenti (Nome, Cognome) VALUES (:nome, :cognome)';
+        $sql = 'INSERT INTO studente (nome, cognome, id_classe) VALUES (:nome, :cognome, :id_classe)';
         //$result = $pdo->query($sql);
         $result = $pdo->prepare($sql);
         $result->execute([
             'nome' => $nome,
-            'cognome' => $cognome
+            'cognome' => $cognome,
+            'id_classe' => $id_classe
         ]);
     }
 
     public static function remove($id)
     {
         $pdo = Connection::getInstance();
-        $sql = 'DELETE FROM studenti WHERE id=:id';
+        $sql = 'DELETE FROM studente WHERE id=:id';
 
         $result = $pdo->prepare($sql);
         $result->execute([
@@ -83,7 +84,7 @@ class StudenteRepository
     public static function update($nome, $cognome, $id)
     {
         $pdo = Connection::getInstance();
-        $sql = 'UPDATE studenti SET Nome = :nome, Cognome = :cognome WHERE id = :id';
+        $sql = 'UPDATE studente SET nome = :nome, cognome = :cognome WHERE id = :id';
         $result = $pdo->prepare($sql);
         $result->execute([
             'nome' => $nome,
