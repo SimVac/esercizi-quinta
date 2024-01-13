@@ -81,15 +81,16 @@ class StudenteRepository
             'id' => $id
         ]);
     }
-    public static function update($nome, $cognome, $id)
+    public static function update($nome, $cognome, $id_classe, $id)
     {
         $pdo = Connection::getInstance();
-        $sql = 'UPDATE studente SET nome = :nome, cognome = :cognome WHERE id = :id';
+        $sql = 'UPDATE studente SET nome = :nome, cognome = :cognome, id_classe = :id_classe WHERE id = :id';
         $result = $pdo->prepare($sql);
         $result->execute([
             'nome' => $nome,
             'cognome' => $cognome,
-            'id' => $id
+            'id' => $id,
+            'id_classe' => $id_classe
         ]);
     }
 }

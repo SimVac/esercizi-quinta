@@ -47,8 +47,14 @@
                     <tr>
                         <td><input type="text" name="nome" value="<?=$studente['nome']?>"></td>
                         <td><input type="text" name="cognome" value="<?=$studente['cognome']?>"></td>
+                        <td>
+                            <select name="id_classe">
+                                <?php foreach ($classi as $classe): ?>
+                                <option value="<?= $classe['id'] ?>" <?= $studente['id_classe'] == $classe['id'] ? 'selected' : '' ?>><?= $classe['sezione'] ?></option>
+                                <?php endforeach?>
+                            </select>
+                        </td>
                         <input type="hidden" name="id" value="<?=$studente['id']?>">
-                        <td><?=$s['sezione']?></td>
                         <td>&nbsp;</td>
                         <td>
                             <button type="submit">Modifica</button>

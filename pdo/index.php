@@ -30,8 +30,9 @@ if(isset($_GET['action'])){
             $id = $_POST['id'];
             $nome = $_POST['nome'];
             $cognome = $_POST['cognome'];
-            \Model\StudenteRepository::update($nome, $cognome, $id);
-            echo "<meta http-equiv='refresh' content='0'>"; //chiedi al prof
+            $id_classe = $_POST['id_classe'];
+            \Model\StudenteRepository::update($nome, $cognome, $id_classe, $id);
+            page_refresh();
         }
         //inserimento
         else{
