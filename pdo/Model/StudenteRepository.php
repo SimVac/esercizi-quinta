@@ -8,7 +8,7 @@ class StudenteRepository
     public static function listAll(): array
     {
         $pdo = Connection::getInstance();
-        $sql = 'SELECT s.*, c.sezione FROM studente AS s INNER JOIN classe AS c WHERE c.id=s.id_classe';
+        $sql = 'SELECT s.*, c.sezione FROM studente AS s INNER JOIN classe AS c ON c.id=s.id_classe';
         $result = $pdo->query($sql);
         return $result->fetchAll();
     }
@@ -38,7 +38,7 @@ class StudenteRepository
     public static function listAllOrderBySurname(): array
     {
         $pdo = Connection::getInstance();
-        $sql = 'SELECT s.*, c.sezione FROM studente AS s INNER JOIN classe AS c WHERE c.id=s.id_classe ORDER BY s.cognome';
+        $sql = 'SELECT s.*, c.sezione FROM studente AS s INNER JOIN classe AS c ON c.id=s.id_classe ORDER BY s.cognome';
         $result = $pdo->query($sql);
         return $result->fetchAll();
     }
@@ -46,14 +46,14 @@ class StudenteRepository
     public static function listAllOrderByName(): array
     {
         $pdo = Connection::getInstance();
-        $sql = 'SELECT s.*, c.sezione FROM studente AS s INNER JOIN classe AS c WHERE c.id=s.id_classe ORDER BY s.nome';
+        $sql = 'SELECT s.*, c.sezione FROM studente AS s INNER JOIN classe AS c ON c.id=s.id_classe ORDER BY s.nome';
         $result = $pdo->query($sql);
         return $result->fetchAll();
     }
     public static function listAllOrderByClass(): array
     {
         $pdo = Connection::getInstance();
-        $sql = 'SELECT s.*, c.sezione FROM studente AS s INNER JOIN classe AS c WHERE c.id=s.id_classe ORDER BY c.classe';
+        $sql = 'SELECT s.*, c.sezione FROM studente AS s INNER JOIN classe AS c ON c.id=s.id_classe ORDER BY c.classe';
         $result = $pdo->query($sql);
         return $result->fetchAll();
     }
