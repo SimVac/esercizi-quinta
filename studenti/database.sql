@@ -1,126 +1,78 @@
--- phpMyAdmin SQL Dump
--- version 5.2.1
--- https://www.phpmyadmin.net/
+-- MariaDB dump 10.19  Distrib 10.4.28-MariaDB, for Win64 (AMD64)
 --
--- Host: 127.0.0.1
--- Creato il: Gen 12, 2024 alle 22:19
--- Versione del server: 10.4.28-MariaDB
--- Versione PHP: 8.1.17
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
+-- Host: 127.0.0.1    Database: 5ai_scuola
+-- ------------------------------------------------------
+-- Server version	10.4.28-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Database: `scuola`
---
-
--- --------------------------------------------------------
-
---
--- Struttura della tabella `classe`
+-- Table structure for table `classe`
 --
 
 DROP TABLE IF EXISTS `classe`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `classe` (
-  `id` int(11) NOT NULL,
-  `sezione` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+  `sezione` varchar(255) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Svuota la tabella prima dell'inserimento `classe`
+-- Dumping data for table `classe`
 --
 
-TRUNCATE TABLE `classe`;
---
--- Dump dei dati per la tabella `classe`
---
-
-INSERT INTO `classe` (`id`, `sezione`) VALUES
-(1, '5AI'),
-(10, '2AI'),
-(11, '3AI');
-
--- --------------------------------------------------------
+LOCK TABLES `classe` WRITE;
+/*!40000 ALTER TABLE `classe` DISABLE KEYS */;
+INSERT INTO `classe` VALUES ('5AI',1),('4AC',2),('1GI',3),('6AI',5),('3a',6);
+/*!40000 ALTER TABLE `classe` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Struttura della tabella `studente`
+-- Table structure for table `studente`
 --
 
 DROP TABLE IF EXISTS `studente`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `studente` (
-  `id` int(11) NOT NULL,
-  `nome` varchar(255) NOT NULL,
-  `cognome` varchar(255) NOT NULL,
-  `id_classe` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(50) DEFAULT NULL,
+  `cognome` varchar(50) DEFAULT NULL,
+  `id_classe` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `studenti_classe_id_fk` (`id_classe`),
+  CONSTRAINT `studenti_classe_id_fk` FOREIGN KEY (`id_classe`) REFERENCES `classe` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Svuota la tabella prima dell'inserimento `studente`
+-- Dumping data for table `studente`
 --
 
-TRUNCATE TABLE `studente`;
---
--- Dump dei dati per la tabella `studente`
---
+LOCK TABLES `studente` WRITE;
+/*!40000 ALTER TABLE `studente` DISABLE KEYS */;
+/*!40000 ALTER TABLE `studente` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
-INSERT INTO `studente` (`id`, `nome`, `cognome`, `id_classe`) VALUES
-(1, 'Mario', 'Rossi', 1),
-(2, 'Luigi', 'Verdi', 1),
-(3, 'Giovanna', 'Bianchi', 1),
-(4, 'Francesca', 'Neri', 1),
-(5, 'Giorno', 'Giallini', 1);
-
---
--- Indici per le tabelle scaricate
---
-
---
--- Indici per le tabelle `classe`
---
-ALTER TABLE `classe`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indici per le tabelle `studente`
---
-ALTER TABLE `studente`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `studente_classe_id_fk` (`id_classe`);
-
---
--- AUTO_INCREMENT per le tabelle scaricate
---
-
---
--- AUTO_INCREMENT per la tabella `classe`
---
-ALTER TABLE `classe`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
---
--- AUTO_INCREMENT per la tabella `studente`
---
-ALTER TABLE `studente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
---
--- Limiti per le tabelle scaricate
---
-
---
--- Limiti per la tabella `studente`
---
-ALTER TABLE `studente`
-  ADD CONSTRAINT `studente_classe_id_fk` FOREIGN KEY (`id_classe`) REFERENCES `classe` (`id`);
-COMMIT;
-
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2024-02-02 10:33:24
