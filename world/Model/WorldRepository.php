@@ -12,4 +12,11 @@ class WorldRepository
         $result = $pdo->query($sql);
         return $result->fetchAll();
     }
+
+    public static function query2(){
+        $pdo = Connection::getInstance();
+        $sql = 'SELECT country.Name FROM country WHERE country.Population < (SELECT MAX(Population) FROM city)';
+        $result = $pdo->query($sql);
+        return $result->fetchAll();
+    }
 }
